@@ -1,32 +1,132 @@
 <!DOCTYPE html>
+<html lang="en-us">
 
-<html>
-    
-    <body style="background-color:hsl(224, 100%, 83%);">
-        <head>
-            <h1 style="color:red"> Tell us what you think! </style></h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/AjMzBofDWFQ?si=pxpB_jYJmpTAr6uw" title="YouTube video player" frameborder="0"></iframe>
-        </head>
+<head>
+    <h1 style="color:red"> Tell us what you think! </style>
+    </h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-        <form action="">
-            <h1 style="color: red;">Feedback: </h1>
-            </label>Enter your first name: <p><input type="text" name="fname" placeholder="anonymous" required></p> 
-            </label>Enter your last name:<p><input type="text" name="lname" placeholder="anonymous" required></p>
-            </label>Enter your email: <p><input type="text" name="mail" placeholder="name@domain.com"></p>
-            </label>Do you recommend this website? <p><input type="radio" name = "recommend" value ="yes">Yes <input type="radio" name="recommend" value="no">No</p>
-            
-            </label>Select your favorite online webpage: <p><select name="webpage" size="4" multiple>
-                    <option value="instagram">Instagram</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="twitter">Twitter</option>
-                    <option value="other">other</option>
-                </select>
+</head>
+
+<body style="background-color:hsl(224, 100%, 83%);"></body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="navbar navbar-expand-lg navbar-light bg-dark" id="navbar">
+                <h1>Navigation menu</h1>
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a class="nav-link text-white" href="https://www.usca.edu/">USCA homepage</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link text-white" href="#assignment">Assignment section</a></li>
+                    <li class="nav-item"> <a class="nav-link text-white" href="#contact">Contact section</a></li>
+                    <li class="nav-item"> <a class="nav-link text-white" href="#portfolio">Portfolio section</a></li>
+                    <li class="nav-item"> <a class="nav-link text-white" href="#schedule">My schedule</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>
+                <iframe  width="560" height="315" src="https://www.youtube.com/embed/AjMzBofDWFQ?si=pxpB_jYJmpTAr6uw"
+                    title="YouTube video player"></iframe>
             </p>
+        </div>
+        <div class="col">
 
-            </label>Please rate this website: <p> 0<input type="range" name="rate" min="0" max="10">10</p>
-            </label>Do you have any comments? <p><textarea name="textarea"  cols="30" rows="10">No comment</textarea></p>
-            <p><input type = "submit" value = "Submit" formnovalidate></p>
-        </form>
-    </body>
+            <form name="feedback">
+
+                <!-- name -->
+                <div class="form-floating">
+                    <input type="text" placeholder="anonymous" class="form-control" name="fname" required></p>
+                    <label for="fname">First name:</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" placeholder="anonymous" class="form-control" name="lname" required></p>
+                    <label for="lname"> Last name:</label>
+                </div>
+
+                <!-- email -->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="name@domain.com" name="mail"></p>
+                    <label for="email"> Email: </label>
+
+                    <small class="form-text text-muted">
+                        Your email will not be shared.
+                    </small>
+                </div>
+
+                <!-- phone number -->
+                <div class="form-group">
+                    <p> Phone number: <input type="tel" placeholder="123-456-7890" pattern="\d{3}-\d{3}-\d{4}"
+                            class="form-control" name="tel" required>
+                    </p>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <p>
+                        Date: <input type="date" class="form-control" name="date">
+                    </p>
+                </div>
+
+                <!-- recommendation -->
+                <div class="form-group">
+                    <p>Would you recommend your website?</p>
+                    <p><input type="radio" name="recommend" value="yes">yes </p>
+                    <p><input type="radio" name="recommend" value="no">no </p>
+                </div>
+
+                <!-- favorite website -->
+                <div class="form-group">
+                    <p> Select your favorite website:
+                        <select name="website" size="4" multiple>
+                            <option value="google" class="form-control">Google</option>
+                            <option value="Facebook" class="form-control">Facebook</option>
+                            <option value="twitter" class="form-control">Twitter</option>
+                            <option value="insta" class="form-control">Instagram</option>
+                            <option value="youtube" class="form-control">Youtube</option>
+                        </select>
+                </div>
+
+                <!-- comments -->
+                <div class="form-group">
+                    <p>
+                        <textarea name="comment" class="form-control" cols="30" rows="10">No Comments</textarea>
+                    </p>
+                </div>
+
+                <!-- rating -->
+                <div class="form-group"></div>
+                <p> How would you rate this website?: 1 <input type="range" class="form-range" name="score" min="0"
+                        max="10"> 10</p>
+
+
+                <!-- submit -->
+                <div class="form-group">
+                    <p><input type="submit" class="form-control" value="Submit" formnovalidate></p>
+                </div>
+                <div class="form-group">
+                    <p><input type="reset" class="form-control" value="Clear the form"></p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--bootstrap javascript file-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
 
 </html>
