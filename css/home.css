@@ -126,6 +126,13 @@ h1{
     border: 4px double dodgerblue;
 }
 
+video{
+    border-radius: 25px;
+    overflow: hidden;
+    height: 500px;
+    width: 300;
+}
+
 /*Selector practice*/
 p::first-letter{
     font-size: larger;
