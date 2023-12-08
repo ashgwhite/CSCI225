@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/imagegallery.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="description" class="description"></div>
+        <div id="image-list">
+            <img class="image" src="img/daisy.jpg" alt="In this image, a field of daisy is pictured on a bright summer day">
+            <img class="image" src="img/marigold.jpg" alt="In this image, beautiful orange and red marigolds are pictured">
+            <img class="image" src="img/rose.jpg" alt="In this image, a rose is shown up close picturing all its natural beauty">
+            <img class="image" src="img/tulips.jpg" alt="In this image, a field of just bloomed tulips are shown on a early spring morning">
+            <img class="image" src="img/sunflower.jpg" alt="In this image, Sunflowers stand tall soaking up the sun on a summer day">
+        </div>
+
+        <div id="navArrows">
+            <button class="arrow" onclick="prevImg()">&#8249;</button>
+            <button class="arrow" onclick="nextImg()">&#8250;</button>
+        </div>
+
+        <div id="navDots"></div>
+    </div>
+
+    <script>
+        const imageList = document.getElementById('image-list');
+        const navDots = document.getElementById('navDots');
+        const description = document.getElementById('description');
+        let currentIndex = 0;
+
+        function updateDots() {
+            navDots.innerHTML = '';
+            for (let i = 0; i < imageList.children.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.onclick = () => showImg(i);
+                navDots.appendChild(dot);
+            }
+            navDots.children[currentIndex].classList.add('active');
+        }
+
+        function updateDescription() {
+            const imageAlt = imageList.children[currentIndex].alt;
+            description.textContent = `Description: ${imageAlt}`;
+        }
+
+        function showImg(index) {
+            currentIndex = index;
+            updateDots();
+            updateDescription();
+            imageList.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function prevImg() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showImg(currentIndex);
+            }
+        }
+
+        function nextImg() {
+            if (currentIndex < imageList.children.length - 1) {
+                currentIndex++;
+                showImg(currentIndex);
+            }
+        }
+
+        showImg(currentIndex);
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowLeft') {
+                prevImg();
+            } else if (event.key === 'ArrowRight') {
+                nextImg();
+            }
+        });
+
+        document.getElementById('container').addEventListener('mousemove', function (event) {
+            const midX = window.innerWidth / 2;
+            const mouseX = event.clientX;
+            const threshold = 100;
+
+            if (mouseX < midX - threshold) {
+                document.querySelector('.arrow:first-child').style.display = 'block';
+                document.querySelector('.arrow:last-child').style.display = 'none';
+            } else if (mouseX > midX + threshold) {
+                document.querySelector('.arrow:first-child').style.display = 'none';
+                document.querySelector('.arrow:last-child').style.display = 'block';
+            } else {
+                document.querySelector('.arrow:first-child').style.display = 'none';
+                document.querySelector('.arrow:last-child').style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

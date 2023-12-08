@@ -1,0 +1,54 @@
+/*Style sheet created by Ashlyn White*/
+body {
+    background-image: url("../img/Estate.jpg");
+    background-size: cover;
+}
+
+.navigation {
+    top: 0px;
+    left: 0px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-table;
+}
+
+.loan-calculator-form {
+    display: none;
+    width: 50vw;
+    background-color: rgba(173, 216, 230, 0.849);
+    text-align: center;
+    font-size: 25px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.loan-calculator-form h1 {
+    background-color: rgba(61, 166, 231, 0.589);
+    color: white;
+    text-align: center;
+}
+
+.loan-table-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loan-table-container p {
+    font-size: 30px;
+    color: white;
+}
+
+.loan-table-container table {
+    border: 2px solid lightgray;
+    background-color: darkgrey;
+    background-color: nth-child gray;
+    width: 70%;
+    margin: auto;
+}
